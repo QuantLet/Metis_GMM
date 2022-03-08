@@ -51,7 +51,7 @@ y_gmm_1 <- fitted(list_gmm_2)
 
 list_gmm_3 <- gmm(relation, x=moment_condition_3)
 summary(list_gmm_3)
-y_gmm_2 < -fitted(list_gmm_3)
+y_gmm_2 <- fitted(list_gmm_3)
 
 list_gmm_4 <- gmm(relation, x=moment_condition_4)
 summary(list_gmm_4)
