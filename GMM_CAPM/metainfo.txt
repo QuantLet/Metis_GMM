@@ -2,8 +2,8 @@ Name of Quantlet: 'GMM_CAPM'
 
 Published in: 'METIS'
 
-Description: 'generate additive model and plot shapley values against both functions of the DGP.'
+Description: 'Test Capital Asset Pricing Theory using Generaliyed Method of Moments.'
 
-Keywords: 'Shapley, additive model, SHAP, Interpretability, Explainable AI'
+Keywords: 'Genaralized Method of Moment, CAPM, '
 
 Author: 'Yifu Wang'
