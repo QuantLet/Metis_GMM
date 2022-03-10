@@ -1,0 +1,9 @@
+Name of Quantlet: 'GMM_sim'
+
+Published in: 'METIS'
+
+Description: '.'
+
+Keywords: 'Genaralized Method of Moment, CAPM, '
+
+Author: 'Yifu Wang'
