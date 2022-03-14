@@ -6,18 +6,15 @@ library(gmm)
 library(mvtnorm)
 library(tidyverse)
 library(MASS)
-
-set.seed(1111)
-# set.seed(112233)
-# set.seed(1234)
+        
+set.seed(1234)
 sig <- matrix(c(1, .9, .9, 1), 2, 2)
-# n affects the performances of the MSC
-n <- 50
+# n may affect the performances of the MSC
+n <- 100
 e <- rmvnorm(n, sigma=sig)
 zi <- rnorm(n)
-## different function
-# xi <- exp(-zi^2) + e[,1]
-xi <- exp(-zi) + e[, 1]
+## endogeneity setup ##
+xi <- exp(-zi^2) + e[,1]
 x_regressor <- cbind(rep(1, n), xi)
 y0 <- 0.3 * xi + e[, 2]
 
@@ -77,7 +74,7 @@ y_ols_ci <- qt(.975, df = n-k-1)*sqrt(var_y_est)
 
 data_all <- data.frame(cbind(xi, y0, y_gmm_1, y_gmm_2, y_gmm_3, y_gmm_4, y_iv, y_ols))
 
-# calculate the CIs of GMM and OLS
+# calculate the CI of OLS
 ## remove the lattice
 ggplot(data_all, aes(x = xi, y = y0)) +
   geom_point() +
@@ -94,7 +91,7 @@ ggplot(data_all, aes(x = xi, y = y0)) +
   theme(plot.background = element_blank()) +
   labs(x = "x") +
   labs(y = "y")
-# ggsave("metis_gmm1.png")
+# ggsave("metis_gmm.png")
 
 # calculate GMM-BIC
 BIC_2moments <- criteria_BIC(2,2)
@@ -117,11 +114,13 @@ J_test_4moments <- specTest.gmm(list_gmm_4)
 J_4moments <- J_test_4moments$test[1]
 J_test_5moments <- specTest.gmm(list_gmm_5)
 J_5moments <- J_test_5moments$test[1]
+
 # MSC_BIC
 GMM_MSC_BIC_2moments <- J_2moments+BIC_2moments
 GMM_MSC_BIC_3moments <- J_3moments+BIC_3moments
 GMM_MSC_BIC_4moments <- J_4moments+BIC_4moments
 GMM_MSC_BIC_5moments <- J_5moments+BIC_5moments
+
 # MSC_HQIC
 GMM_MSC_HQIC_2moments <- J_2moments+HQIC_2moments
 GMM_MSC_HQIC_3moments <- J_3moments+HQIC_3moments
