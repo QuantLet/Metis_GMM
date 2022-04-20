@@ -10,7 +10,7 @@ Published in: 'METIS'
 
 Description: 'Comparison of GMM, 2SLS and OLS based on simulated data'
 
-Keywords: 'Genaralized Method of Moment, CAPM, '
+Keywords: 'Genaralized Method of Moment, Instrument Variables, 2-Stage Least Square, Ordinary Least Square'
 
 Author: 'Yifu Wang'
 
