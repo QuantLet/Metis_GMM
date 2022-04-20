@@ -10,7 +10,7 @@ Published in: 'METIS'
 
 Description: 'Test Capital Asset Pricing Theory using Generaliyed Method of Moments.'
 
-Keywords: 'Genaralized Method of Moment, CAPM, '
+Keywords: 'Genaralized Method of Moment, CAPM, Model Specification Test'
 
 Author: 'Yifu Wang'
 
