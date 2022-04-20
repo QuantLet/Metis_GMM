@@ -8,7 +8,7 @@ Name of Quantlet: 'GMM_sim'
 
 Published in: 'METIS'
 
-Description: '.'
+Description: 'Comparison of GMM, 2SLS and OLS based on simulated data'
 
 Keywords: 'Genaralized Method of Moment, CAPM, '
 
