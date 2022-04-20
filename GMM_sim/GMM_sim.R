@@ -75,13 +75,11 @@ y_ols_ci <- qt(.975, df = n-k-1)*sqrt(var_y_est)
 
 data_all <- data.frame(cbind(xi, y0, y_gmm_1, y_gmm_2, y_gmm_3, y_gmm_4, y_iv, y_ols))
 
-# calculate the CIs of GMM and OLS
-## remove the lattice
-png(paste0("Metis_GMM_sim.png"), width = 900, height = 600, bg = "transparent")
 plot_fitted <- 
   ggplot(data_all, aes(x = xi, y = y0)) +
   geom_point() +
   geom_line(aes(xi, y_ols),colour = "blue",lwd = 2) +
+  # calculate the CIs of GMM and OLS
   geom_ribbon(aes(ymin=y_ols-rep(y_ols_ci,n), ymax=y_ols+rep(y_ols_ci,n)), alpha=0.1, fill = "blue", 
               color = "black", linetype = "dotted") +
   # geom_line(aes(xi, y_gmm_1),colour = "pink",lwd = 2)+
